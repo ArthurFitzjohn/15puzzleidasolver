@@ -76,40 +76,36 @@ public class PuzzleState
 
     public ArrayList<PuzzleState> possibleMoves() {
         ArrayList<PuzzleState> moves = new ArrayList<PuzzleState>();
-        if (this.prevState != 1 && (this.spacePos1 + 1) <= (puzzle.length-1)) {
+        if ((this.spacePos1 + 1) <= (puzzle.length-1)) {
             PuzzleState newState = this.clone();
             newState.puzzle[this.spacePos1][this.spacePos2] = this.puzzle[this.spacePos1 + 1][this.spacePos2];
             newState.puzzle[this.spacePos1 + 1][this.spacePos2] = 0;
             newState.spacePos1 = this.spacePos1 + 1;
             newState.spacePos2 = this.spacePos2;
-            newState.prevState = 1;//maybe remove
             moves.add(newState);
         }
-        if (this.prevState != 2 && (this.spacePos2 + 1) <= (puzzle[0].length-1)) {
+        if ((this.spacePos2 + 1) <= (puzzle[0].length-1)) {
             PuzzleState newState = this.clone();
             newState.puzzle[this.spacePos1][this.spacePos2] = this.puzzle[this.spacePos1][this.spacePos2 + 1];
             newState.puzzle[this.spacePos1][this.spacePos2 + 1] = 0;
             newState.spacePos1 = this.spacePos1;
             newState.spacePos2 = this.spacePos2 + 1;
-            newState.prevState = 2;
             moves.add(newState);
         }
-        if (this.prevState != 3 && (this.spacePos1 - 1) >= 0) {
+        if ((this.spacePos1 - 1) >= 0) {
             PuzzleState newState = this.clone();
             newState.puzzle[this.spacePos1][this.spacePos2] = this.puzzle[this.spacePos1 - 1][this.spacePos2];
             newState.puzzle[this.spacePos1 - 1][this.spacePos2] = 0;
             newState.spacePos1 = this.spacePos1 - 1;
             newState.spacePos2 = this.spacePos2;
-            newState.prevState = 3;
             moves.add(newState);
         }
-        if (this.prevState != 4 && (this.spacePos2 - 1) >= 0) {
+        if ((this.spacePos2 - 1) >= 0) {
             PuzzleState newState = this.clone();
             newState.puzzle[this.spacePos1][this.spacePos2] = this.puzzle[this.spacePos1][this.spacePos2 - 1];
             newState.puzzle[this.spacePos1][this.spacePos2 - 1] = 0;
             newState.spacePos1 = this.spacePos1;
             newState.spacePos2 = this.spacePos2 - 1;
-            newState.prevState = 4;
             moves.add(newState);
         }
         return moves;
