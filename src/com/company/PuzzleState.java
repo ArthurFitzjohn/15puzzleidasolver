@@ -140,7 +140,7 @@ public class PuzzleState
 
             for(int k = 0; k < puzzle.length-1; k++)
             {
-                if(puzzle[k][i]!=0) {
+                if(puzzle[k][i]!=0 && puzzle[k+1][i]!=0) {
                     if (column.contains(puzzle[k][i])) {
                         if (column.contains(puzzle[k + 1][i])) {
                             if (puzzle[k][i] > puzzle[k + 1][i])
@@ -150,7 +150,7 @@ public class PuzzleState
                         }
                     }
                 }
-                if(puzzle[i][k]!=0) {
+                if(puzzle[i][k]!=0 && puzzle[i][k+1] != 0) {
                     if (row.contains(puzzle[i][k])) {
                         if (row.contains(puzzle[i][k + 1])) {
                             if (puzzle[i][k] > puzzle[i][k + 1]) {
@@ -200,6 +200,6 @@ public class PuzzleState
             }
         }
 
-        return totalDistance;// + (2 * linearConflicts)
+        return totalDistance + (2 * linearConflicts);
     }
 }
