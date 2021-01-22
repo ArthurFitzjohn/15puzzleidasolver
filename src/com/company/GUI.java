@@ -141,7 +141,7 @@ public class GUI extends JFrame
         }
         else
         {
-            if(validPuzzle(initial_puzzle))
+            if(validPuzzle(initial_puzzle) && validPuzzle(goal_puzzle))
             {
                 //System.out.println("working!");
                 //System.out.println(Arrays.deepToString(initial_puzzle));
