@@ -110,8 +110,8 @@ public class Solver
 
         for(PuzzleState ps : n.state.possibleMoves())
         {
-            if((n.getCost()+1)<=100)
-            {
+            //if((n.getCost()+1)<=100)
+            //{
                 Node newNode = new Node(ps, n, n.getCost()+1);
 
                 int temp = IDA(newNode, newNode.getCost(), threshold, output);
@@ -121,7 +121,7 @@ public class Solver
                 if (temp < min) {
                     min = temp;
                 }
-            }
+            //}
         }
 
         return min;
