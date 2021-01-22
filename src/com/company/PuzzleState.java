@@ -176,13 +176,13 @@ public class PuzzleState
         {
             for(y1=0; y1<puzzle[x1].length; y1++)
             {
-                if(puzzle[x1][y1] == 0)
-                {
-                    break;
-                }
                 xyFound=false;
                 for(x2=0; x2<GOAL_STATE.length; x2++)
                 {
+                    if(puzzle[x1][y1] == 0)
+                    {
+                        break;
+                    }
                     for(y2=0; y2<GOAL_STATE[x2].length; y2++)
                     {
                         if(puzzle[x1][y1]==GOAL_STATE[x2][y2])
